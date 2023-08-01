@@ -18,7 +18,7 @@ const Timer = ({interval, setNumber}) => {
       const updatedNumber = newNumber > 9 ? 0 : newNumber;
 
       // Make an API call to update the "number" variable in the JSON server
-      fetch('http://localhost:3000/timer', {
+      fetch('http://localhost:5000/settings', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -36,29 +36,36 @@ const Timer = ({interval, setNumber}) => {
     });
   }, [setNumber]);
 
+  const startNewInterval = () => {
+    if (isCountingDown.current) return;
+
+    isCountingDown.current = true;
+    incrementNumber();
+
+    setTimeout(() => {
+      isCountingDown.current = false;
+      const currentTime = new Date().getTime() / 1000;
+      const intervalStartTime = Math.floor(currentTime / intervalDuration) * intervalDuration;
+      setCountdown(intervalStartTime - currentTime);
+    }, 0);
+  };
+
   useEffect(() => {
-    // Calculate the initial countdown duration for the first interval
     const currentTime = new Date().getTime() / 1000;
-    const initialCountdown = intervalDuration - (currentTime % intervalDuration);
-    setCountdown(initialCountdown);
+    const intervalStartTime = Math.ceil(currentTime / intervalDuration) * intervalDuration;
+    setCountdown(intervalStartTime - currentTime);
 
     const intervalId = setInterval(() => {
       setCountdown(prevCountdown => {
-        if (prevCountdown === 0) {
-          if (!isCountingDown.current) {
-            isCountingDown.current = true;
-            incrementNumber();
-          }
-          return intervalDuration;
-        } else {
-          isCountingDown.current = false;
-          return prevCountdown - 1;
+        if (prevCountdown <= 1) {
+          startNewInterval();
         }
+        return prevCountdown - 1;
       });
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [interval, intervalDuration, incrementNumber]);
+  }, [interval, intervalDuration, startNewInterval]);
 
 
   const formatTime = (timeInSeconds) => {
@@ -71,7 +78,7 @@ const Timer = ({interval, setNumber}) => {
 
   return (
     <div>
-      <div>{countdown >= 0 ? formatTime(countdown) : formatTime(intervalDuration)}</div>
+      <div>{formatTime(countdown)}</div>
     </div>
   )
 }
