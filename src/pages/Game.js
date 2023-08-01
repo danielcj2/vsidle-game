@@ -116,10 +116,10 @@ function Game() {
 
   return (
     <>
-      <ModalPopUp state={modalState} outcome={outcome} hints={hintsUnlocked} answer={arrayClone.games[gameNumber].answer[0]} index={gameNumber}/>
+      <ModalPopUp state={modalState} outcome={outcome} hints={hintsUnlocked} answer={arrayClone.games[gameNumber].answer[0]} index={gameNumber} interval={interval} setNumber={setGameNumber}/>
       <Overlay overlay = {sidebarOverlayShow} menu = {menuClick}/>
       <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick}/>
-      <Header title={arrayClone.text} menuShow = {menuClick} interval={interval} number={gameNumber} setNumber={setGameNumber}/>
+      <Header title={arrayClone.text} menuShow = {menuClick} interval={interval} setNumber={setGameNumber}/>
       <div className="game-container d-flex flex-column align-items-center">
         <div className="game-tries-counter d-flex"><Attempts current={currentAttemptField} hintsUnlocked={hintsUnlocked} total={arrayClone.games[gameNumber].hints.length} changeHint={changeHint}/></div>
         <div className="game-display d-flex align-items-center justify-content-center"><GameText stage={currentAttemptField} hints={arrayClone.games[gameNumber].hints} index={gameNumber}/></div>

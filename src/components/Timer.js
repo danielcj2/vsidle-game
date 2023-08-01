@@ -1,36 +1,20 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 
 
-const Timer = ({interval, number, setNumber}) => {
+const Timer = ({interval, setNumber}) => {
   const [countdown, setCountdown] = useState(interval);
   //track if incrementNumber is in progress
   const isCountingDown = useRef(false);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCountdown(prevCountdown => {
-        if (prevCountdown === 0) {
-          if (!isCountingDown.current) {
-            isCountingDown.current = true;
-            incrementNumber();
-          }
-          return interval;
-        } else {
-          isCountingDown.current = false;
-          return prevCountdown - 1;
-        }
-      });
-    }, 1000);
+  // Calculate the interval duration based on the number of intervals in a 24-hour period
+  const intervalDuration = Math.floor(24 * 60 * 60 / interval);
 
-    return () => clearInterval(intervalId);
-  }, [interval]);
-
-  const incrementNumber = () => {
+  const incrementNumber = useCallback(() => {
     setNumber(prevNumber => {
       const newNumber = prevNumber + 1;
 
-      // If the newNumber exceeds 10, reset it to 1
+      // If the newNumber exceeds 9, reset it to 0 (This is just the limit for the beta test, it is the # of games currently added for each category)
       const updatedNumber = newNumber > 9 ? 0 : newNumber;
 
       // Make an API call to update the "number" variable in the JSON server
@@ -50,58 +34,47 @@ const Timer = ({interval, number, setNumber}) => {
 
       return updatedNumber;
     });
-  }
+  }, [setNumber]);
+
+  useEffect(() => {
+    // Calculate the initial countdown duration for the first interval
+    const currentTime = new Date().getTime() / 1000;
+    const initialCountdown = intervalDuration - (currentTime % intervalDuration);
+    setCountdown(initialCountdown);
+
+    const intervalId = setInterval(() => {
+      setCountdown(prevCountdown => {
+        if (prevCountdown === 0) {
+          if (!isCountingDown.current) {
+            isCountingDown.current = true;
+            incrementNumber();
+          }
+          return intervalDuration;
+        } else {
+          isCountingDown.current = false;
+          return prevCountdown - 1;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [interval, intervalDuration, incrementNumber]);
+
 
   const formatTime = (timeInSeconds) => {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = timeInSeconds % 60;
+    const seconds = Math.floor(timeInSeconds % 60);
 
     return `${hours}h ${minutes}m ${seconds}s`;
   }
 
   return (
     <div>
-      <div>{formatTime(countdown)}</div>
-      <div>Index: {number}</div>
+      <div>{countdown >= 0 ? formatTime(countdown) : formatTime(intervalDuration)}</div>
     </div>
   )
 }
 
 
 export default Timer;
-
-
-
-
-// const SECOND = 1000;
-// const MINUTE = SECOND * 60;
-// const HOUR = MINUTE * 60;
-// const timeStamp = new Date();
-//   timeStamp.setHours(20,0,0);
-
-//   const parsedTimeStamp = Date.parse(timeStamp);
-//   const [time, setTime] = useState(parsedTimeStamp - Date.now());
-
-//   useEffect(() => {
-//     const interval = setInterval(
-//         () => setTime(parsedTimeStamp - Date.now()),
-//         1000,
-//     );
-
-//     return () => clearInterval(interval);
-//   }, [parsedTimeStamp]);
-
-//   return (
-//     <div className="timer d-flex">
-//       {Object.entries({
-//                 h: (time / HOUR) % 24,
-//                 m: (time / MINUTE) % 60,
-//                 s: (time / SECOND) % 60,
-//             }).map(([label, value]) => (
-//                 <div key={label}>
-//                     <p className="ch"><span className="white">{`${Math.floor(value)}`.padStart(2, "0")}</span><span className="white">{label === "s" ? "" : " :"}</span></p>
-//                 </div>
-//             ))}
-//     </div>
-//   )

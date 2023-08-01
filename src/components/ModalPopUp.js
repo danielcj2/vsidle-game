@@ -3,7 +3,7 @@ import Timer from './Timer'
 import { Link } from 'react-router-dom';
 import images from '../img/images'
 
-function ModalPopUp({state, outcome, hints, answer, index}) {
+function ModalPopUp({state, outcome, hints, answer, index, interval, setNumber}) {
   const handleClose = () => false;
 
   return (
@@ -23,7 +23,7 @@ function ModalPopUp({state, outcome, hints, answer, index}) {
         <Modal.Footer>
         <div className="time">
             {outcome ? <div>You can test your brain again in...</div> : <div>Try again in...</div>}
-            <Timer />
+            <Timer interval={interval} setNumber={setNumber}/>
           </div>
         <Link to="/"><button className="btn">
             Close
