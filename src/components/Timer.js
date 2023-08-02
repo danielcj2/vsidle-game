@@ -14,8 +14,8 @@ const Timer = ({interval, setNumber}) => {
     setNumber(prevNumber => {
       const newNumber = prevNumber + 1;
 
-      // If the newNumber exceeds 9, reset it to 0 (This is just the limit for the beta test, it is the # of games currently added for each category)
-      const updatedNumber = newNumber > 9 ? 0 : newNumber;
+      // If the newNumber exceeds 5, reset it to 0 (This is just the limit for the beta test, it is the # of games currently added for each category)
+      const updatedNumber = newNumber > 5 ? 0 : newNumber;
 
       // Make an API call to update the "number" variable in the JSON server
       fetch('http://localhost:5000/settings', {
@@ -37,6 +37,7 @@ const Timer = ({interval, setNumber}) => {
   }, [setNumber]);
 
   const startNewInterval = () => {
+    //if incrementNumber is in progress, return
     if (isCountingDown.current) return;
 
     isCountingDown.current = true;

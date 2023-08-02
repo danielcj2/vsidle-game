@@ -29,32 +29,12 @@ export const gamesList = [
     {
       id: 4,
       answer: ["Denzel Washington", "denzel", "washington"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
+      hints: ["Before playing a doctor on TV, this person planned on becoming one.", "This person declined the role of detective David Mills in the movie Se7ven, which was later given to Brad Pitt.", "This person helped Chadwick Boseman become an actor.", "/src/img/pic5-cropped.jpg", "This person was the leading star in the film Malcom X."]
     },
     {
       id: 5,
       answer: ["Keanu Reeves", "keanu", "reeves"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
-    },
-    {
-      id: 6,
-      answer: ["Drew Barrymore", "drew", "barrymore"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
-    },
-    {
-      id: 7,
-      answer: ["Nicolas Cage", "nicolas", "cage"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
-    },
-    {
-      id: 8,
-      answer: ["Daniel Craig", "daniel", "craig"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
-    },
-    {
-      id: 9,
-      answer: ["Ben Stiller", "ben", "stiller"],
-      hints: ["Hint", "Hint", "Hint", "Hint", "Hint"]
+      hints: ["This person's first name means 'cool breeze over the mountains' in Hawaiian.", "This actor was branded the nicest person in Hollywood.", "This person voices Duke Caboom in the last chapter of the Toy Story series.", "/src/img/pic6-cropped.jpg", "Johnny Silverhand"]
     }]
   },
   {
