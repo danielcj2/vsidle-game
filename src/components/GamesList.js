@@ -14,7 +14,7 @@ export const gamesList = [
     {
       id: 1,
       answer: ["Morgan Freeman", "morgan", "freeman", "morgan freeman"],
-      hints: ["This person is most well-known for their deep and smooth narrator voice.", "This person is an expert beekeeper, in fact they own a 124-acre bee sanctuary.", "/src/img/pic2-cropped.jpg", "This person was in the Air Force", "This person's middle name is Porterfield."]
+      hints: ["This person is most well-known for their deep and smooth narrator voice.", "This person is an expert beekeeper, in fact they own a 124-acre bee sanctuary.", "/src/img/pic2-cropped.jpg", "This person played Lucius Fox in Christopher Nolan's Batman Film Series.", "This person's middle name is Porterfield."]
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export const gamesList = [
     {
       id: 4,
       answer: ["Denzel Washington", "denzel", "washington"],
-      hints: ["Before playing a doctor on TV, this person planned on becoming one.", "This person declined the role of detective David Mills in the movie Se7ven, which was later given to Brad Pitt.", "This person helped Chadwick Boseman become an actor.", "/src/img/pic5-cropped.jpg", "This person was the leading star in the film Malcom X."]
+      hints: ["Before playing a doctor on TV, this person planned on becoming one.", "This person declined the role of detective David Mills in the movie Se7ven. The role was later given to Brad Pitt.", "This person helped Chadwick Boseman become an actor.", "/src/img/pic5-cropped.jpg", "This person was the leading star in the film Malcom X."]
     },
     {
       id: 5,
@@ -40,8 +40,8 @@ export const gamesList = [
   {
     id: 'game-2',
     text: 'Movie',
-    added: true,
-    path: '/game/movie',
+    added: false,
+    path: '/',
     games: [{
       id: 0,
       answer: ["", "", "", ""],
@@ -51,8 +51,8 @@ export const gamesList = [
   {
     id: 'game-3',
     text: 'Song',
-    added: true,
-    path: '/game/song',
+    added: false,
+    path: '/',
     games: [{
       id: 0,
       answer: ["", "", "", ""],
@@ -61,31 +61,14 @@ export const gamesList = [
   },
   {
     id: 'game-4',
-    text: 'IMDb Rating',
-    added: true,
-    path: '/game/imdb',
-    games: [{
-      id: 0,
-      answer: ["", "", "", ""],
-      hints: ["IMDb Hint", "IMDb Hint 2", "IMDb Hint 3", "IMDb Hint 4", "IMDb Hint 5"]
-    }]
-  },
-  {
-    id: 'game-5',
-    text: 'Video Games',
-    added: true,
-    path: '/game/videogames',
-    games: [{
-      id: 0,
-      answer: ["", "", "", ""],
-      hints: ["Views Hint", "Views Hint 2", "Views Hint 3", "Views Hint 4", "Views Hint 5"]
-    }]
-  },
-  {
-    id: 'game-6',
-    text: 'COMING SOON',
+    text: 'Video Game',
     added: false,
     path: '/',
+    games: [{
+      id: 0,
+      answer: ["", "", "", ""],
+      hints: ["Video Game Hint", "Video Game Hint 2", "Video Game Hint 3", "Video Game Hint 4", "Video Game Hint 5"]
+    }]
   }]
 
 const Games = () => {
