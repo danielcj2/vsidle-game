@@ -5,7 +5,6 @@ import { VscClose } from 'react-icons/vsc';
 import { FaCog } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import * as MdIcons from 'react-icons/md';
-import * as IoIcons from 'react-icons/io';
 
 
 const Sidebar = ({sidebar, menu}) => {
@@ -17,12 +16,11 @@ const Sidebar = ({sidebar, menu}) => {
         },
         {
             name: 'Guess the ...',
-            icon: <IoIcons.IoLogoGameControllerA />,
             subArray: gamesList
         },
         {
-            name: 'Archive',
-            path: '/archive',
+            name: 'Statistics',
+            path: '/',
             icon: <MdIcons.MdLeaderboard />,
         },
         {

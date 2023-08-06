@@ -1,6 +1,6 @@
 {
   "settings": {
-    "number": 4,
-    "interval": 1024
+    "number": 0,
+    "interval": 128
   }
 }

@@ -74,12 +74,12 @@ const Timer = ({interval, setNumber}) => {
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const seconds = Math.floor(timeInSeconds % 60);
 
-    return `${hours}h ${minutes}m ${seconds}s`;
+    return `${hours} : ${minutes} : ${seconds}`;
   }
 
   return (
     <div>
-      <div>{formatTime(countdown)}</div>
+      <div className="timer">{formatTime(countdown)}</div>
     </div>
   )
 }

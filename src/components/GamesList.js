@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import comingSoon from './icons/coming-soon-overlay.svg';
 
 export const gamesList = [
   {
@@ -74,7 +75,7 @@ export const gamesList = [
 const Games = () => {
   return (
     <>
-      {gamesList.map((game) => (<Link to={game.path} className="game d-flex justify-content-center" key={game.id}><h5 className="align-self-center">{game.text}</h5></Link>))}
+      {gamesList.map((game) => (<Link to={game.path} className="game d-flex justify-content-center" key={game.id}>{game.added ? "" : <img className="comingSoonOverlay" src={comingSoon} alt="coming soon"/>}<h5 className="align-self-center">{game.text}</h5></Link>))}
     </>
   )
 }
