@@ -73,7 +73,7 @@ function Game() {
     if(userAnswer.current.value !== ""){
 
       for (let i = 0; i < arrayClone.games[gameNumber].answer.length; i++){
-        if(userAnswer.current.value === arrayClone.games[gameNumber].answer[i]){
+        if(userAnswer.current.value.toLowerCase() === arrayClone.games[gameNumber].answer[i].toLowerCase()){
           setOutcome(true);
           return;
         }
