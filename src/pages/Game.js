@@ -86,14 +86,14 @@ function Game() {
           });
           setCurrentAttemptField(hintsUnlocked + 1);
 
-          addAlertError("!!! You can do better than that...");
+          addAlertError("!! You can do better than that...");
         } else {
           setModalState(true);
         }
       }
     }
     else {
-      addAlertError("!! Write Something Bozo")
+      addAlertError("!! Input is empty...")
     }
   } 
 

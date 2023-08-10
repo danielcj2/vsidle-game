@@ -1,5 +1,5 @@
 import SubMenu from "./SubMenu";
-import logo from './icons/guessdle-logo-blue-background.svg'
+import icon from './icons/guessdle-icon-nobackground.svg'
 import { gamesList } from "./GamesList";
 import { VscClose } from 'react-icons/vsc';
 import { FaCog } from 'react-icons/fa';
@@ -36,7 +36,7 @@ const Sidebar = ({sidebar, menu}) => {
     return (
         <nav className = {sidebar ? "sidebar sidebar-show" : "sidebar"}>
             <div className="sidebar-header d-flex align-items-end justify-content-start">
-                <img className="menu-logo" style={{width: '15%'}} src={logo} alt="logo" />
+                <img className="menu-logo" style={{width: '15%'}} src={icon} alt="logo" />
                 <h3 className="menu-title">MENU</h3>
                 <button className="btn close-btn" onClick={menu}><VscClose /></button>
             </div>

@@ -57,8 +57,8 @@ function Home() {
     <>
       <Overlay overlay = {sidebarOverlayShow} menu = {menuClick}/>
       <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick}/>
-      <HowToModal show={howToModalState}/>
-      <Header addLogo="yes" menuShow = {menuClick} interval={interval} setNumber={setGameNumber} setHelpModal={helpClick}/>
+      <HowToModal state={howToModalState} setHowToModal={helpClick}/>
+      <Header addLogo="yes" menuShow = {menuClick} interval={interval} setNumber={setGameNumber} setHowToModal={helpClick}/>
       <div className="games-section d-flex flex-wrap justify-content-start">
         <Games />
       </div>

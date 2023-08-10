@@ -1,34 +1,40 @@
 import Modal from 'react-bootstrap/Modal';
 import {CgClose} from 'react-icons/cg';
+import icon from './icons/guessdle-icon-nobackground.svg'
 
-const HowToModal = ({state}) => {
-  const handleClose = () => false;
+const HowToModal = ({state, setHowToModal}) => {
+  const handleClose = () => {
+    setHowToModal(false);
+  }
   
   return (
-    <Modal show={true} onHide={handleClose}>
+    <Modal className="howToModal" show={state} onHide={handleClose}>
         <Modal.Header>
-            <Modal.Title><h1>How To Play</h1><button className="btn"><CgClose></CgClose></button></Modal.Title>
+            <Modal.Title className="howToModal-title d-flex justify-content-start align-items-center">
+              <img style={{width: '10%'}} src={icon} alt="icon" />
+              <h2>How To Play</h2>
+              <button className="ml-auto btn closeModal align-self-start" onClick={handleClose}><CgClose></CgClose></button></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="howToModal-body">
           <div className="rules">
-            <h2>Guess the correct answer for 4 different game categories:</h2>
+            <h5>Guess the correct answer for 4 different game categories:</h5>
             <ul>
               <li>The player will be given 5 attempts (hints) total.</li>
               <li>The player may revisit previous hints, simply by clicking on the ? circle above the hint-box.</li>
-              <li>The answer must be typed in its full form.</li>
+              <li>The answer must be typed in its full form. (In the case of names, the player must include first AND last name; middle name(s) not required but acceptable)</li>
             </ul>
           </div>
           <div className="example">
-            <h2 className="example-h2">E X A M P L E</h2>
-            <h3 className="example-q">This person plays the comical Deadpool character in the Marvel Film Series.</h3>
-            <h2>The correct answer would be: <span className="bold">Ryan Reynolds</span>.</h2>
-            <h2>Other acceptable answers: <span className="bold">ryan reynolds, RYAN REYNOLDS, Ryan Rodeny Reynolds</span>.</h2>
-            <h2>Invalid answers: <span className="bold">ryan, rYaN rEyNolDS, reynolds</span>.</h2>
+            <h5 className="example-h5">E X A M P L E</h5>
+            <p className="example-q text-center">This person plays the comical Deadpool character in the Marvel Film Series.</p>
+            <p>The correct answer would be: <span className="bold">Ryan Reynolds</span>.</p>
+            <p>Other acceptable answers: <span className="bold">ryan reynolds, Ryan Rodney Reynolds</span>.</p>
+            <p>Invalid answers: <span className="bold">ryan, reynolds</span>.</p>
           </div>
-          <div className="info"><h2>GAMES WILL RESET EVERY 12 HOURS</h2></div>
+          <div className="info"><h5>GAMES WILL RESET EVERY 12 HOURS</h5></div>
         </Modal.Body>
-        <Modal.Footer>
-          <h2>THANKS FOR PLAYING!</h2>
+        <Modal.Footer className="d-flex justify-content-center">
+          <h5>THANKS FOR PLAYING!</h5>
         </Modal.Footer>
     </Modal>
   )

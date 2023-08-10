@@ -39,6 +39,10 @@ body{
   font-size: 1.2rem;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 .sidebar{
   background-color: var(--game-background);
   width: 250px;
@@ -291,6 +295,11 @@ a>span{
   max-width: 550px;
 }
 
+.howToModal > .modal-dialog{
+  margin-top: 150px;
+  max-width: 450px;
+}
+
 .modal-content{
   height: auto;
   max-height: 875px;
@@ -306,6 +315,20 @@ a>span{
   font-size: 2rem;
 }
 
+.howToModal-title h2{
+  margin: 0;
+  margin-left: 0.7rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.closeModal{
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
 .modal-content{
   background-color: var(--game-background);
   color: var(--text-white);
@@ -317,6 +340,51 @@ a>span{
 
 .modal-body{
   padding: 0;
+}
+
+.howToModal-body{
+  margin: 1.5rem;
+}
+
+.modal-body .rules, .example{
+  text-align: left;
+}
+
+.rules>h5, .example>h5{
+  font-size: 1rem;
+}
+
+.rules>h5{
+  font-weight: lighter;
+}
+
+.modal-body p{
+  margin: 0;
+  font-weight: lighter;
+}
+
+.rules>ul>li, .example p{
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.example-q{
+  color: var(--text-orange);
+  font-style: italic;
+}
+
+.example-h5{
+  font-weight: bold;
+}
+
+.info{
+  border-top: solid 3px var(--text-yellow);
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.info>h5, .modal-footer>h5{
+  font-size: 1rem;
 }
 
 .modal-footer{
