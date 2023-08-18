@@ -18,11 +18,11 @@ const Sidebar = ({sidebar, menu}) => {
             name: 'Guess the ...',
             subArray: gamesList
         },
-        {
-            name: 'Statistics',
-            path: '/',
-            icon: <MdIcons.MdLeaderboard />,
-        },
+        // {
+        //     name: 'Statistics',
+        //     path: '/',
+        //     icon: <MdIcons.MdLeaderboard />,
+        // },
         {
             name: 'Help',
             icon: <MdIcons.MdHelpCenter />,
