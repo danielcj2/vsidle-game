@@ -16,7 +16,7 @@ const Sidebar = ({sidebar, menu}) => {
         },
         {
             name: 'Guess the ...',
-            subArray: gamesList
+            subArray: gamesList,
         },
         // {
         //     name: 'Statistics',
