@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/vsidle-game/static/css/main.408cc3e3.css",
+    "main.js": "/vsidle-game/static/js/main.9243447c.js",
+    "static/js/787.496b6df5.chunk.js": "/vsidle-game/static/js/787.496b6df5.chunk.js",
+    "static/media/pic2-cropped.jpg": "/vsidle-game/static/media/pic2-cropped.835d21464d42ef2c1b06.jpg",
+    "static/media/pic1.jpg": "/vsidle-game/static/media/pic1.15d96623978e188b1d5f.jpg",
+    "static/media/pic1-cropped.jpg": "/vsidle-game/static/media/pic1-cropped.6067c7fb8f23e9355d77.jpg",
+    "static/media/pic3.jpg": "/vsidle-game/static/media/pic3.a4e5d67a6e5d9cf01b66.jpg",
+    "static/media/pic4-cropped.jpg": "/vsidle-game/static/media/pic4-cropped.42d11d335a2e1aa67d00.jpg",
+    "static/media/pic5-cropped.jpg": "/vsidle-game/static/media/pic5-cropped.a12c910e53998dcc01bb.jpg",
+    "static/media/pic4.jpg": "/vsidle-game/static/media/pic4.8fef3cfb593422f1e3f3.jpg",
+    "static/media/pic6-cropped.jpg": "/vsidle-game/static/media/pic6-cropped.6b15cfa21d5fddc7b489.jpg",
+    "static/media/pic2.jpg": "/vsidle-game/static/media/pic2.0354f376dd34b2cbfc79.jpg",
+    "static/media/pic3-cropped.jpg": "/vsidle-game/static/media/pic3-cropped.622de84dc1967382dd8c.jpg",
+    "static/media/pic6.jpg": "/vsidle-game/static/media/pic6.7e75269fc360a49442a2.jpg",
+    "static/media/pic5.jpg": "/vsidle-game/static/media/pic5.eae743d6f670a8646a9c.jpg",
+    "static/media/coming-soon-overlay.svg": "/vsidle-game/static/media/coming-soon-overlay.560ffafb4618fc17d6710bf238e76a21.svg",
+    "static/media/guessdle-logo.svg": "/vsidle-game/static/media/guessdle-logo.5565a238bc2304f21342bb2c9eecc76e.svg",
+    "static/media/attempt.svg": "/vsidle-game/static/media/attempt.aa3d37ca831009cb8c5e89090f654924.svg",
+    "static/media/guessdle-icon-nobackground.svg": "/vsidle-game/static/media/guessdle-icon-nobackground.12d646fdf7c409b855423e21d3a44bf1.svg",
+    "static/media/howto-icon.svg": "/vsidle-game/static/media/howto-icon.61c81dde9d36e9f39c5a6b1a2afe136c.svg",
+    "static/media/attempt-current.svg": "/vsidle-game/static/media/attempt-current.2890e652a1a22547aea3cd93edbd6733.svg",
+    "static/media/attempt-default.svg": "/vsidle-game/static/media/attempt-default.4fedc50380648732247ad32535bf9990.svg",
+    "index.html": "/vsidle-game/index.html",
+    "main.408cc3e3.css.map": "/vsidle-game/static/css/main.408cc3e3.css.map",
+    "main.9243447c.js.map": "/vsidle-game/static/js/main.9243447c.js.map",
+    "787.496b6df5.chunk.js.map": "/vsidle-game/static/js/787.496b6df5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.408cc3e3.css",
+    "static/js/main.9243447c.js"
+  ]
+}
