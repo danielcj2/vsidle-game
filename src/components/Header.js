@@ -8,7 +8,7 @@ const Header = ({title, addLogo, menuShow, interval, setNumber, setHowToModal}) 
     <header style={{width: "100%"}} className="d-flex flex-nowrap justify-content-between">
       <div className="indent align-self-top"><Timer interval={interval} setNumber={setNumber}/></div>
       <div className="header-title text-center align-self-center">
-        {addLogo ? <img src={logo} alt="icon" /> : null}
+        {addLogo ? <img className="fill-text" src={logo} alt="icon" /> : null}
         <h2>Guess the {title ? <span>{title}</span> : '. . .'}</h2>
       </div>
       <div className="header-menu d-flex flex-nowrap align-items-baseline">

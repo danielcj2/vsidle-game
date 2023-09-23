@@ -1,12 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 :root{
-  --main-background: #272838;
-  --main-background-lighter: #34354A;
-  --game-background: #1e1e2c;
   --text-yellow: #F7B05B;
   --text-orange: #CC5803;
   --text-white: #E7DECD;  
+}
+
+.default{
+  --main-background: #272838;
+  --game-background: #1e1e2c;
+  --main-background-lighter: #34354A;
+}
+
+.dark{
+  --main-background: #17181E;
+  --game-background: #202229;
+  --main-background-lighter: #262730;
+
+}
+
+.light{
+  --main-background: #E7ECEF;
+  --game-background: white;
+  --main-background-lighter: #34354A;
+  --text-white: black;  
 }
 
 * {
@@ -295,7 +313,7 @@ a>span{
   max-width: 550px;
 }
 
-.howToModal > .modal-dialog{
+.howToModal > .modal-dialog, .settingsModal > .modal-dialog{
   margin-top: 150px;
   max-width: 450px;
 }
@@ -303,10 +321,11 @@ a>span{
 .modal-content{
   height: auto;
   max-height: 875px;
-}
-
-.modal-content{
   text-align: center;
+  background-color: var(--game-background);
+  color: var(--text-white);
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .modal-title{
@@ -315,7 +334,7 @@ a>span{
   font-size: 2rem;
 }
 
-.howToModal-title h2{
+.howToModal-title h2, .settingsModal-title h2{
   margin: 0;
   margin-left: 0.7rem;
   margin-top: 1rem;
@@ -327,11 +346,6 @@ a>span{
   position: absolute;
   right: 1rem;
   top: 1rem;
-}
-
-.modal-content{
-  background-color: var(--game-background);
-  color: var(--text-white);
 }
 
 .modal-header, .modal-footer{
@@ -387,6 +401,11 @@ a>span{
   font-size: 1rem;
 }
 
+.settings-option{
+  margin: 0 1rem;
+  padding: 1rem 0;
+  border-bottom: solid 0.1rem var(--main-background)
+}
 .modal-footer{
   justify-content: space-between;
 }
@@ -456,6 +475,26 @@ a>span{
   font-weight: 500;
 }
 
+.switch{
+  background-color: #E7DECD;
+  border-color: #E7DECD;
+}
+
+.switch:checked{
+  background-color: var(--text-yellow);
+  border-color: var(--text-yellow);
+}
+
+.switch:focus, .switch:active{
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+  color: white;
+}
+
+.switch:active, .switch:focus{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+}
 
 
 

@@ -3,10 +3,11 @@ import Sidebar from "../components/Sidebar";
 import Overlay from "../components/Overlay";
 import Header from "../components/Header";
 import HowToModal from "../components/HowToModal";
+import SettingsModal from "../components/SettingsModal";
 import {useState, useEffect} from 'react';
 // import {interval, setGameNumber} from "./Game"
 
-function Home() {
+function Home({theme, setTheme}) {
   const [sidebarOverlayShow, setSidebar] = useState(false);
   const menuClick = () => {
     setSidebar(!sidebarOverlayShow);
@@ -16,6 +17,13 @@ function Home() {
   const [howToModalState, setHowToModalState] = useState(false);
   const helpClick = () => {
     setHowToModalState(!howToModalState);
+  }
+
+  //settings modal
+  const [settingsModalState, setSettingsModalState] = useState(false);
+  const settingsClick = () => {
+    setSettingsModalState(!settingsModalState);
+    setSidebar(false);
   }
 
 
@@ -56,8 +64,9 @@ function Home() {
   return (
     <>
       <Overlay overlay = {sidebarOverlayShow} menu = {menuClick}/>
-      <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick}/>
+      <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick} setSettings={settingsClick} setHowToModal={helpClick}/>
       <HowToModal state={howToModalState} setHowToModal={helpClick}/>
+      <SettingsModal state={settingsModalState} setSettingsModal={settingsClick} theme={theme} setTheme={setTheme}/>
       <Header addLogo="yes" menuShow = {menuClick} interval={interval} setNumber={setGameNumber} setHowToModal={helpClick}/>
       <div className="games-section d-flex flex-wrap justify-content-start">
         <Games />

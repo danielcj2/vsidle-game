@@ -13,7 +13,8 @@ const HowToModal = ({state, setHowToModal}) => {
             <Modal.Title className="howToModal-title d-flex justify-content-start align-items-center">
               <img style={{width: '10%'}} src={icon} alt="icon" />
               <h2>How To Play</h2>
-              <button className="ml-auto btn closeModal align-self-start" onClick={handleClose}><CgClose></CgClose></button></Modal.Title>
+              <button className="ml-auto btn closeModal align-self-start" onClick={handleClose}><CgClose></CgClose></button>
+            </Modal.Title>
         </Modal.Header>
         <Modal.Body className="howToModal-body">
           <div className="rules">

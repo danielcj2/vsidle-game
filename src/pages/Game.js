@@ -7,14 +7,29 @@ import { useState , useEffect, useRef } from 'react';
 import { gamesList } from "../components/GamesList";
 import Attempts from "../components/Attempts";
 import GameText from "../components/GameText";
+import HowToModal from "../components/HowToModal";
+import SettingsModal from "../components/SettingsModal";
 
-function Game() {
+function Game({theme, setTheme}) {
   var arrayClone;
   var gamePick = window.location.pathname;
 
   //modal
   const [modalState, setModalState] = useState(false);
   const [outcome, setOutcome] = useState(false);
+
+  //help modal
+  const [howToModalState, setHowToModalState] = useState(false);
+  const helpClick = () => {
+    setHowToModalState(!howToModalState);
+  }
+
+  //settings modal
+  const [settingsModalState, setSettingsModalState] = useState(false);
+  const settingsClick = () => {
+    setSettingsModalState(!settingsModalState);
+    setSidebar(false);
+  }
 
   //sidebar
   const [sidebarOverlayShow, setSidebar] = useState(false);
@@ -118,8 +133,10 @@ function Game() {
     <>
       <ModalPopUp state={modalState} outcome={outcome} hints={hintsUnlocked} answer={arrayClone.games[gameNumber].answer[0]} index={gameNumber} interval={interval} setNumber={setGameNumber}/>
       <Overlay overlay = {sidebarOverlayShow} menu = {menuClick}/>
-      <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick}/>
-      <Header title={arrayClone.text} menuShow = {menuClick} interval={interval} setNumber={setGameNumber}/>
+      <Sidebar sidebar = {sidebarOverlayShow} menu = {menuClick} setSettings={settingsClick} setHowToModal={helpClick}/>
+      <HowToModal state={howToModalState} setHowToModal={helpClick}/>
+      <SettingsModal state={settingsModalState} setSettingsModal={settingsClick} theme={theme} setTheme={setTheme}/>
+      <Header title={arrayClone.text} menuShow = {menuClick} interval={interval} setNumber={setGameNumber} setHowToModal={helpClick}/>
       <div className="game-container d-flex flex-column align-items-center">
         <div className="game-tries-counter d-flex"><Attempts current={currentAttemptField} hintsUnlocked={hintsUnlocked} total={arrayClone.games[gameNumber].hints.length} changeHint={changeHint}/></div>
         <div className="game-display d-flex align-items-center justify-content-center"><GameText stage={currentAttemptField} hints={arrayClone.games[gameNumber].hints} index={gameNumber}/></div>

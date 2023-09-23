@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import * as MdIcons from 'react-icons/md';
 
 
-const Sidebar = ({sidebar, menu}) => {
+const Sidebar = ({sidebar, menu, setSettings, setHowToModal}) => {
     const sidebarItems = [
         {
             name: 'Home',
@@ -26,10 +26,12 @@ const Sidebar = ({sidebar, menu}) => {
         {
             name: 'Help',
             icon: <MdIcons.MdHelpCenter />,
+            click: setHowToModal,
         },
         {
             name: 'Settings',
             icon: <FaCog />,
+            click: setSettings,
         }
     ]
 
@@ -40,7 +42,7 @@ const Sidebar = ({sidebar, menu}) => {
                 <h3 className="menu-title">MENU</h3>
                 <button className="btn close-btn" onClick={menu}><VscClose /></button>
             </div>
-            {sidebarItems.map((item, index) => (<><div key={index} className={item.subArray ? "nav-item hasSubMenu" : "nav-item"}><Link to={item.path} className="d-flex align-items-end">{item.icon}<span>{item.name}</span></Link></div>{item.subArray ? <SubMenu submenuItems={item.subArray} menu={menu}/> : null}</>))}
+            {sidebarItems.map((item, index) => (<><div key={index} className={item.subArray ? "nav-item hasSubMenu" : "nav-item"} onClick={item.click}><Link to={item.path} className="d-flex align-items-end">{item.icon}<span>{item.name}</span></Link></div>{item.subArray ? <SubMenu submenuItems={item.subArray} menu={menu}/> : null}</>))}
         </nav>
     )
 }
